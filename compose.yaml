@@ -3,7 +3,7 @@ version: "3"
 services:
   mqtt-io:
     container_name: mqtt-io
-    image: flyte/mqtt-gpio:armv7l
+    image: flyte/mqtt-io
     privileged: true
     restart: unless-stopped
     volumes:
