@@ -1,0 +1,31 @@
+version: "3"
+
+services:
+  mqtt-io:
+    container_name: mqtt-io
+    image: flyte/mqtt-gpio:armv7l
+    privileged: true
+    restart: unless-stopped
+    volumes:
+      - ./mqtt-io/config.yml:/config.yml
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "200k"
+        max-file: "10"
+
+  mqtt-broker:
+    container_name: mqtt-broker
+    image: eclipse-mosquitto
+    restart: unless-stopped
+    volumes:
+      - ./mqtt-broker/mosquitto.conf:/mosquitto/config/mosquitto.conf
+      - mosquitto-data:/mosquitto/data
+      - mosquitto-logs:/mosquitto/logs
+    ports:
+      - "1883:1883"
+      - "9001:9001"
+
+volumes:
+  mosquitto-data:
+  mosquitto-logs:

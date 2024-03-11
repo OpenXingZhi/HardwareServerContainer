@@ -1,0 +1,33 @@
+mqtt:
+  host: localhost
+  topic_prefix: home
+
+# GPIO
+gpio_modules:
+  # Use the Raspberry Pi built-in GPIO
+  - name: rpi
+    module: raspberrypi
+
+digital_inputs:
+  # Pin 0 is an input connected to a doorbell button
+  - name: doorbell
+    module: rpi
+    pin: 0
+
+digital_outputs:
+  # Pin 1 is an output connected to a light
+  - name: porch_light
+    module: rpi
+    pin: 1
+
+# Streams
+stream_modules:
+  - name: ttyUSB0
+    module: serial
+    device: /dev/ttyUSB0
+    baud: 38400
+
+  - name: ttyUSB1
+    module: serial
+    device: /dev/ttyUSB1
+    baud: 38400
