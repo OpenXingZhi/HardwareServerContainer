@@ -24,6 +24,11 @@ services:
     ports:
       - "1883:1883"
       - "9001:9001"
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "200k"
+        max-file: "10"
 
 volumes:
   mosquitto-data:
