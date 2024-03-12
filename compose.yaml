@@ -4,6 +4,8 @@ services:
   mqtt-io:
     container_name: mqtt-io
     image: flyte/mqtt-io
+    profiles:
+      - mqtt-io
     privileged: true
     restart: unless-stopped
     volumes:
@@ -13,6 +15,18 @@ services:
       options:
         max-size: "200k"
         max-file: "10"
+
+  2mqtt:
+    container_name: 2mqtt
+    image: mycontroller/2mqtt:1.5-devel
+    profiles:
+      - 2mqtt
+    privileged: true
+    environment:
+      - TZ=Asia/Shanghai
+    restart: unless-stopped
+    volumes:
+      - ./2mqtt/config.yaml:/app/config.yaml
 
   mqtt-broker:
     container_name: mqtt-broker

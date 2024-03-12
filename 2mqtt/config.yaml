@@ -1,0 +1,25 @@
+logger:
+  mode: development # logger mode: development, production
+  encoding: console # encoding options: console, json
+  level: info # log levels: debug, info, warn, error, fatal
+
+adapters: # you can have more than one adapter
+  - name: ttyUSB0 # name of the adapter
+    enabled: true # enable or disable the adapter, default disabled
+    reconnect_delay: 20s # reconnect automatically, if there is a failure on the connection
+    provider: raw # provider type, options: mysensors_v2, raw
+    source: # source is the device, to be converted to MQTT, based on the type, configurations will be different
+      type: serial # source device type: serial
+      port: /dev/ttyUSB0 # serial port
+      baud_rate: 38400 # serial baud rate
+      transmit_pre_delay: 10ms # waits and sends a message, to avoid collision on the source network
+    mqtt: # mqtt broker details
+      broker: tcp://mqtt-broker:1883 # broker url: supports tcp, mqtt, tls, mqtts
+      insecure: true # enable/disable insecure on tls connection
+      username: # username of the broker
+      password: # password of the broker
+      subscribe: sub_usb0/# # subscribe a topic, should include `#` at the end, your controller to serial port(source)
+      publish: pub_usb0 # publish on this topic, can add many topics with comma, serial to your controller
+      qos: 0 # qos number: 0, 1, 2
+      transmit_pre_delay: 0s
+      reconnect_delay: 5s
