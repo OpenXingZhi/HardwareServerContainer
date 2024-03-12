@@ -35,6 +35,7 @@ services:
     volumes:
       - ./mqtt-broker/mosquitto.conf:/mosquitto/config/mosquitto.conf
       - mosquitto-data:/mosquitto/data
+      - mosquitto-log:/mosquitto/log
     ports:
       - "1883:1883"
       - "9001:9001"
@@ -46,3 +47,4 @@ services:
 
 volumes:
   mosquitto-data:
+  mosquitto-log:
