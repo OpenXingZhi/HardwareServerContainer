@@ -1,12 +1,13 @@
 mqtt:
-  host: localhost
-  topic_prefix: home
+  host: mqtt-broker
+  port: 1883
+  topic_prefix: mqtt_io
 
 # GPIO
 gpio_modules:
-  # Use the Raspberry Pi built-in GPIO
+  # Use the Raspberry Pi 5 built-in GPIO
   - name: rpi
-    module: raspberrypi
+    module: gpiozero
 
 digital_inputs:
   # Pin 0 is an input connected to a doorbell button
