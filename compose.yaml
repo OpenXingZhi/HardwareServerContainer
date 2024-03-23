@@ -5,6 +5,7 @@ services:
     profiles:
       - mqtt-io
     privileged: true
+    user: root
     restart: unless-stopped
     volumes:
       - ./mqtt-io/config.yml:/config.yml
