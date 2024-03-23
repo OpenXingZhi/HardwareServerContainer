@@ -1,5 +1,3 @@
-version: "3"
-
 services:
   mqtt-io:
     container_name: mqtt-io
