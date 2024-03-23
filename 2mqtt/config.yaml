@@ -18,8 +18,8 @@ adapters: # you can have more than one adapter
       insecure: true # enable/disable insecure on tls connection
       username: # username of the broker
       password: # password of the broker
-      subscribe: sub_usb0/# # subscribe a topic, should include `#` at the end, your controller to serial port(source)
-      publish: pub_usb0 # publish on this topic, can add many topics with comma, serial to your controller
+      subscribe: ttyUSB0/send# # subscribe a topic, should include `#` at the end, your controller to serial port(source)
+      publish: ttyUSB0/set # publish on this topic, can add many topics with comma, serial to your controller
       qos: 0 # qos number: 0, 1, 2
       transmit_pre_delay: 0s
       reconnect_delay: 5s
