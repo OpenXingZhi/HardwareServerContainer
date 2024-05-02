@@ -1,11 +1,12 @@
 mqtt:
   host: mqtt-broker
   port: 1883
-  topic_prefix: mqtt_io
+  topic_prefix: mqtt-io
 
 # Streams
 stream_modules:
-  - name: ttyUSB0
-    module: serial
-    device: /dev/ttyUSB0
-    baud: 38400
+  - name: qr_scanner
+    module: usb_hid
+    vid: 0x0525
+    pid: 0xA4AC
+    read_size: 64

@@ -1,7 +1,7 @@
 services:
   mqtt-io:
     container_name: mqtt-io
-    image: flyte/mqtt-io
+    image: chuxubank/mqtt-io:develop
     profiles:
       - mqtt-io
     privileged: true
