@@ -4,6 +4,8 @@ services:
     image: chuxubank/mqtt-io:develop
     profiles:
       - mqtt-io
+    depends_on:
+      - mqtt-broker
     privileged: true
     user: root
     restart: unless-stopped
@@ -20,6 +22,8 @@ services:
     image: mycontroller/2mqtt:1.5-devel
     profiles:
       - 2mqtt
+    depends_on:
+      - mqtt-broker
     privileged: true
     environment:
       - TZ=Asia/Shanghai
