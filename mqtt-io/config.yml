@@ -5,7 +5,7 @@ mqtt:
 
 # Streams
 stream_modules:
-  - name: qr_scanner
+  - name: qr-scanner
     module: usb_hid
     vid: 0x0525
     pid: 0xA4AC
