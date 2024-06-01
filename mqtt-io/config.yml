@@ -10,3 +10,20 @@ stream_modules:
     vid: 0x0525
     pid: 0xA4AC
     read_size: 64
+
+logging:
+  version: 1
+  handlers:
+    console:
+      class: logging.StreamHandler
+      formatter: default
+      level: DEBUG
+  formatters:
+    default:
+      format: "%(asctime)s %(name)s [%(levelname)s] %(message)s"
+      datefmt: "%Y-%m-%d %H:%M:%S"
+  loggers:
+    mqtt_io:
+      level: DEBUG
+      handlers: [console]
+      propagate: True
