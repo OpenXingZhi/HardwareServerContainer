@@ -1,7 +1,7 @@
 services:
   mqtt-io:
     container_name: mqtt-io
-    image: chuxubank/mqtt-io:develop
+    image: docker.chuxubank.top/chuxubank/mqtt-io:develop
     profiles:
       - mqtt-io
     depends_on:
@@ -19,7 +19,7 @@ services:
 
   2mqtt:
     container_name: 2mqtt
-    image: mycontroller/2mqtt:1.5-devel
+    image: docker.chuxubank.top/mycontroller/2mqtt:1.5-devel
     profiles:
       - 2mqtt
     depends_on:
@@ -33,7 +33,7 @@ services:
 
   mqtt-broker:
     container_name: mqtt-broker
-    image: eclipse-mosquitto
+    image: docker.chuxubank.top/eclipse-mosquitto
     restart: unless-stopped
     volumes:
       - ./mqtt-broker/mosquitto.conf:/mosquitto/config/mosquitto.conf
