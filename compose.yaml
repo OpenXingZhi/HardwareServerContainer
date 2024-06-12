@@ -33,7 +33,7 @@ services:
 
   mqtt-broker:
     container_name: mqtt-broker
-    image: docker.chuxubank.top/eclipse-mosquitto
+    image: docker.chuxubank.top/library/eclipse-mosquitto
     restart: unless-stopped
     volumes:
       - ./mqtt-broker/mosquitto.conf:/mosquitto/config/mosquitto.conf
