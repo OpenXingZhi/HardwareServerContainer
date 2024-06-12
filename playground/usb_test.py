@@ -85,6 +85,8 @@ try:
         print("Received data:\n", recv_data)
 except KeyboardInterrupt:
     pass
+except usb.core.USBTimeoutError:
+    print("No data")
 finally:
     usb.util.release_interface(dev, 0)
     usb.util.dispose_resources(dev)
