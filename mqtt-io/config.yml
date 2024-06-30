@@ -14,6 +14,15 @@ stream_modules:
     interface: 1
     read_interval: 1
 
+  - name: tag-reader
+    module: usb_hid
+    vid: 0x03EB
+    pid: 0x2421
+    read_size: 64
+    write_size: 64
+    interface: 0
+    read_interval: 1
+
 logging:
   version: 1
   handlers:

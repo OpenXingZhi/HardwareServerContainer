@@ -11,7 +11,7 @@ class UsbHidClient(CommunicationInter):
 
     def __init__(self):
         super().__init__()
-        # self.dev = usb.core.find(idVendor=0x03EB, idProduct=0x2421)
+        self.dev = usb.core.find(idVendor=0x03EB, idProduct=0x2421)
         self.__inPoint = None
         self.__outPoint = None
         self.dev = None  # type:usb.core.Device
