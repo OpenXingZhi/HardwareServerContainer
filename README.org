@@ -1,0 +1,28 @@
+* Deployment
+
+** Install Docker
+#+begin_src sh
+  curl -fsSL https://get.docker.com -o install-docker.sh
+  # cat install-docker.sh
+  sudo sh install-docker.sh --mirror Aliyun
+#+end_src
+
+** Clone repo
+
+** Setup Device
+
+*** QR Scanner
+1. Scan [[file:qr-scanner/QR_Code128-USB-Dev.png]]
+2. Scan [[file:qr-scanner/Reboot.png]]
+
+** Check Device
+#+begin_src sh
+  lsusb
+#+end_src
+
+Check if =vid= and =pid= match [[file:mqtt-io/config.yml]] defined.
+** Deploy
+#+begin_src sh
+  docker compose --profile mqtt-io up -d
+#+end_src
+
