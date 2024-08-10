@@ -9,6 +9,12 @@
 
 ** Clone repo
 
+*** Setup Git
+#+begin_src sh
+  git config --global user.name "XingZhi"
+  git config --global user.email rpi@xingzhi.com
+#+end_src
+
 ** Setup Device
 
 *** QR Scanner
