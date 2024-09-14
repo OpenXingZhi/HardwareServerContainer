@@ -1,10 +1,49 @@
 * Deployment
 
+** Setup network
+https://help.mirrors.cernet.edu.cn/raspberrypi/
+#+begin_src sh
+  sudo nano /etc/apt/sources.list.d/raspi.list
+#+end_src
+
+#+begin_src conf
+  deb https://mirrors.cernet.edu.cn/raspberrypi/ bookworm main
+#+end_src
+
+https://help.mirrors.cernet.edu.cn/debian/
+#+begin_src sh
+  sudo nano /etc/apt/sources.list
+#+end_src
+
+#+begin_src conf
+  deb https://mirrors.cernet.edu.cn/debian/ bookworm main contrib non-free non-free-firmware
+  deb https://mirrors.cernet.edu.cn/debian/ bookworm-updates main contrib non-free non-free-firmware
+  deb https://security.debian.org/debian-security bookworm-security main contrib non-free non-free-firmware
+#+end_src
+
 ** Install Docker
 #+begin_src sh
   curl -fsSL https://get.docker.com -o install-docker.sh
   # cat install-docker.sh
   sudo sh install-docker.sh --mirror Aliyun
+#+end_src
+
+** Setup Docker
+#+begin_src sh
+  sudo systemctl enable docker.service
+  sudo systemctl enable containerd.service
+#+end_src
+
+** Set ip
+#+begin_src sh
+  sudo nmtui
+#+end_src
+
+#+begin_src conf
+  interface eth0
+  static ip_address=192.168.2.15/24
+  static routers=192.168.2.11
+  static domain_name_servers=192.168.2.11
 #+end_src
 
 ** Clone repo
@@ -27,6 +66,7 @@
 #+end_src
 
 Check if =vid= and =pid= match [[file:mqtt-io/config.yml]] defined.
+
 ** Deploy
 #+begin_src sh
   docker compose --profile mqtt-io up -d
