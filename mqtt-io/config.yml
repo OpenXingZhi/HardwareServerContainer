@@ -19,7 +19,7 @@ stream_modules:
     vid: 0x03EB
     pid: 0x2421
     read_size: 64
-    read_interval: 1
+    read_interval: 0.01
 
 logging:
   version: 1
