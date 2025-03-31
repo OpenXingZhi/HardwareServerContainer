@@ -1,0 +1,32 @@
+mqtt:
+  host: mqtt-broker
+  port: 1883
+  topic_prefix: mqtt-io
+
+# Streams
+stream_modules:
+  - name: tag-reader
+    module: usb
+    vid: 0xFFFE
+    pid: 0x0091
+    read_size: 1024
+    write_size: 64
+    interface: 0
+    read_interval: 1
+
+logging:
+  version: 1
+  handlers:
+    console:
+      class: logging.StreamHandler
+      formatter: default
+      level: DEBUG
+  formatters:
+    default:
+      format: "%(asctime)s %(name)s [%(levelname)s] %(message)s"
+      datefmt: "%Y-%m-%d %H:%M:%S"
+  loggers:
+    mqtt_io:
+      level: DEBUG
+      handlers: [console]
+      propagate: True
