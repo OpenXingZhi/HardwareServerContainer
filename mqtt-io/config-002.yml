@@ -5,6 +5,15 @@ mqtt:
 
 # Streams
 stream_modules:
+  - name: card-reader
+    module: usb
+    vid: 0xFFFE
+    pid: 0x0092
+    read_size: 1024
+    write_size: 64
+    interface: 0
+    read_interval: 0.01
+
   - name: tag-reader
     module: usb
     vid: 0xFFFE
@@ -12,7 +21,7 @@ stream_modules:
     read_size: 1024
     write_size: 64
     interface: 0
-    read_interval: 1
+    read_interval: 0.01
 
 logging:
   version: 1
