@@ -17,6 +17,18 @@ services:
         max-size: "200k"
         max-file: "10"
 
+  hardware-proxy:
+    container_name: hardware-proxy
+    image: docker.chuxubank.top/chuxubank/hardware-proxy
+    privileged: true
+    user: root
+    restart: unless-stopped
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "200k"
+        max-file: "10"
+
   2mqtt:
     container_name: 2mqtt
     image: docker.chuxubank.top/mycontroller/2mqtt:1.5-devel
