@@ -20,9 +20,12 @@ services:
   hardware-proxy:
     container_name: hardware-proxy
     image: docker.chuxubank.top/chuxubank/hardware-proxy
+    platform: linux/arm64
     privileged: true
     user: root
     restart: unless-stopped
+    ports:
+      - "8080:8080"
     logging:
       driver: "json-file"
       options:
