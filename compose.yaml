@@ -1,7 +1,7 @@
 services:
   mqtt-io:
     container_name: mqtt-io
-    image: docker.chuxubank.top/chuxubank/mqtt-io:develop
+    image: docker.chuxubank.top/chuxubank/mqtt-io:restart
     profiles:
       - mqtt-io
     depends_on:
