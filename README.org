@@ -35,15 +35,41 @@ https://help.mirrors.cernet.edu.cn/debian/
 #+end_src
 
 ** Set ip
-#+begin_src sh
-  sudo nmtui
-#+end_src
 
+*** Eth
+**** dhcpcd
+[[file:/etc/dhcpcd.conf]]
 #+begin_src conf
   interface eth0
   static ip_address=192.168.2.15/24
   static routers=192.168.2.11
   static domain_name_servers=192.168.2.11
+#+end_src
+
+**** NetworkManager
+***** Check connections
+#+begin_src sh
+  nmcli connection show
+#+end_src
+
+***** Modify
+#+begin_src sh
+  sudo nmcli connection modify "Wired connection 1" \
+    ipv4.method "manual" \
+    ipv4.addresses "192.168.2.15/24" \
+    ipv4.gateway "192.168.2.11" \
+    ipv4.dns "192.168.2.11"
+#+end_src
+
+***** Reconnect
+#+begin_src sh
+  sudo nmcli connection down "Wired connection 1"
+  sudo nmcli connection up "Wired connection 1"
+#+end_src
+
+*** Wi-Fi
+#+begin_src sh
+  sudo nmtui
 #+end_src
 
 ** Clone repo
