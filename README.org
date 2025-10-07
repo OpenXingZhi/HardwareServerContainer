@@ -93,6 +93,8 @@ https://help.mirrors.cernet.edu.cn/debian/
 
 Check if =vid= and =pid= match [[file:mqtt-io/config.yml]] defined.
 
+[[file:/sshx:mypi@raspberrypi.local:~/HardwareServerContainer]]
+
 ** Deploy
 #+begin_src sh
   docker compose --profile mqtt-io up -d
