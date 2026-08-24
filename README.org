@@ -87,11 +87,13 @@ https://help.mirrors.cernet.edu.cn/debian/
 2. Scan [[file:qr-scanner/Reboot.png]]
 
 ** Check Device
+Copy [[file:mqtt-io/config-001.yml]] or [[file:mqtt-io/config-002.yml]] to [[file:mqtt-io/config.yml]], then edit and verify =vid=, =pid=, and other device values against =lsusb=.
+
 #+begin_src sh
   lsusb
 #+end_src
 
-Check if =vid= and =pid= match [[file:mqtt-io/config.yml]] defined.
+Runtime config is [[file:mqtt-io/config.yml]].
 
 [[file:/sshx:mypi@raspberrypi.local:~/HardwareServerContainer]]
 

@@ -10,7 +10,12 @@ services:
     user: root
     restart: unless-stopped
     volumes:
-      - ./mqtt-io/config.yml:/config.yml
+      - type: bind
+        source: ./mqtt-io/config.yml
+        target: /config.yml
+        read_only: true
+        bind:
+          create_host_path: false
     logging:
       driver: "json-file"
       options:
