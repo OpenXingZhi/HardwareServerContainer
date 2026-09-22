@@ -12,7 +12,7 @@ stream_modules:
     read_size: 1024
     write_size: 64
     interface: 1
-    read_interval: 1
+    read_interval: 0.01
 
   - name: tag-reader
     module: usb_hid
