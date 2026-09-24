@@ -28,6 +28,16 @@ services:
     platform: linux/arm64
     privileged: true
     user: root
+    environment:
+      QR_VID: "0x0525"
+      QR_PID: "0xA4AC"
+      QR_INTERFACE: "1"
+      HF_VID: "0xFFFE"
+      HF_PID: "0x0091"
+      HF_INTERFACE: "0"
+      UHF_VID: "0x03EB"
+      UHF_PID: "0x2421"
+      UHF_INTERFACE: "0"
     restart: unless-stopped
     ports:
       - "8080:8080"

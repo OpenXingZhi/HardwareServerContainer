@@ -87,18 +87,25 @@ https://help.mirrors.cernet.edu.cn/debian/
 2. Scan [[file:qr-scanner/Reboot.png]]
 
 ** Check Device
-Copy [[file:mqtt-io/config-001.yml]] or [[file:mqtt-io/config-002.yml]] to [[file:mqtt-io/config.yml]], then edit and verify =vid=, =pid=, and other device values against =lsusb=.
+QR, HF, and UHF are opened by hardware-proxy. The kRPC routes are fixed:
+=/qr=, =/hf=, =/uhf=, and =/card=. Do not put those paths in the tablet config.
 
 #+begin_src sh
   lsusb
 #+end_src
 
-Runtime config is [[file:mqtt-io/config.yml]].
+Defaults are QR =0525:A4AC= interface 1, HF =FFFE:0091= interface 0, and UHF =03EB:2421= interface 0.
+Override them with =QR_VID=, =QR_PID=, =QR_INTERFACE=, =HF_*=, and =UHF_*= on the hardware-proxy service.
+
+[[file:mqtt-io/config.yml]] is the runtime file for the optional mqtt-io profile.
+It must keep =stream_modules: []=. An old copy will claim the same USB devices.
 
 [[file:/sshx:mypi@raspberrypi.local:~/HardwareServerContainer]]
 
 ** Deploy
 #+begin_src sh
-  docker compose --profile mqtt-io up -d
+  docker compose up -d
 #+end_src
+
+hardware-proxy listens on 8080. Do not start the mqtt-io profile for these readers.
 
