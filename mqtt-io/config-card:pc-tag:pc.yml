@@ -3,21 +3,8 @@ mqtt:
   port: 1883
   topic_prefix: mqtt-io
 
-# Streams
-stream_modules:
-  - name: card-reader
-    module: usb_hid
-    vid: 0xFFFE
-    pid: 0x0092
-    read_size: 1024
-    read_interval: 0.01
-
-  - name: tag-reader
-    module: usb_hid
-    vid: 0xFFFE
-    pid: 0x0091
-    read_size: 1024
-    read_interval: 0.01
+# The server opens the HF reader over kRPC.
+stream_modules: []
 
 logging:
   version: 1

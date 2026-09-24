@@ -3,23 +3,8 @@ mqtt:
   port: 1883
   topic_prefix: mqtt-io
 
-# Streams
-stream_modules:
-  - name: card-reader
-    module: usb
-    vid: 0x0525
-    pid: 0xA4AC
-    read_size: 1024
-    write_size: 64
-    interface: 1
-    read_interval: 0.01
-
-  - name: tag-reader
-    module: usb_hid
-    vid: 0x03EB
-    pid: 0x2421
-    read_size: 64
-    read_interval: 0.01
+# The server opens the scanner and UHF reader over kRPC.
+stream_modules: []
 
 logging:
   version: 1
