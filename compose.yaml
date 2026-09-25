@@ -38,6 +38,8 @@ services:
       UHF_VID: "0x03EB"
       UHF_PID: "0x2421"
       UHF_INTERFACE: "0"
+    volumes:
+      - /dev/bus/usb:/dev/bus/usb
     restart: unless-stopped
     ports:
       - "8080:8080"
