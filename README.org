@@ -109,3 +109,19 @@ It must keep =stream_modules: []=. An old copy will claim the same USB devices.
 
 hardware-proxy listens on 8080. Do not start the mqtt-io profile for these readers.
 
+** hardware-proxy image, logs, and telemetry
+
+=HARDWARE_PROXY_TAG= pins =docker.chuxubank.top/chuxubank/hardware-proxy= (default =latest=).
+=HARDWARE_PROXY_LOG_LEVEL= is passed through as =LOG_LEVEL= (default =INFO=).
+=SENTRY_DSN= is optional; leave it unset or empty to disable Sentry.
+
+#+begin_src sh
+  HARDWARE_PROXY_TAG=1.4.0 \
+  HARDWARE_PROXY_LOG_LEVEL=DEBUG \
+  SENTRY_DSN=https://example.invalid/1 \
+  docker compose up -d
+#+end_src
+
+hardware-proxy json-file logs use =max-size= =1m= and =max-file= =10= (about 10MB)
+so field diagnostics stay bounded on the SD card.
+
