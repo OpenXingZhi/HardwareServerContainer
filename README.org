@@ -1,5 +1,13 @@
 * Deployment
 
+** Source of truth
+
+Push only to GitHub. Do not push the Gitee remote by hand. A push to =main=
+is mirrored by =.github/workflows/mirror-gitee.yml=.
+
+Create a repository Action secret named =GITEE_TOKEN= (a Gitee personal access
+token with repo write). Do not commit the token.
+
 ** Setup network
 https://help.mirrors.cernet.edu.cn/raspberrypi/
 #+begin_src sh
